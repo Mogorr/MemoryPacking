@@ -2,6 +2,15 @@
 
 import sys, getopt
 
+def formatInput(inputfile):
+	infile = open(inputfile,'r')
+	linelist = infile.readlines()
+	splitlist=[]
+	for line in linelist:
+		splitlist.append(line.split())
+    intsplitlist = [map(int,x) for x in splitlist]
+	return intsplitlist
+
 def main(argv):
 	inputfile = ''
 	outputfile = ''
@@ -17,7 +26,9 @@ def main(argv):
 		elif opt in ("-i", "--ifile"):
 			inputfile = arg
 		elif opt in ("-o", "--ofile"):
-			outputfile = arg   
+			outputfile = arg
+	formattedInput = formatInput(inputfile)
+	
    
 if __name__ == "__main__":
    main(sys.argv[1:])
