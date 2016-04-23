@@ -24,6 +24,7 @@ def fillMemory(infile, outfile, memsize):
 		memBank.addSegment(seg)
 	for block in memBank.blocks:
 		print block
+	print memBank.freeSpaces
 	
 def main(argv):
 	inputfile = ''
