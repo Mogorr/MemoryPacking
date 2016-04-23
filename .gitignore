@@ -64,3 +64,5 @@ target/
 a.txt
 b.txt
 *.csv
+*.ods
+*.txt
