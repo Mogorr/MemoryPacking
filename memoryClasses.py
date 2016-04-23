@@ -13,6 +13,8 @@ class MemoryBank:
 			print 'couldn\'t find a spot for this segment:'
 			print (segment.size,segment.align)
 			return
+		if segment.align != 1:
+			note='align:{0}'.format(segment.align)
 		self.blocks.append([address,segment.size,note])
 		self.updateFreeSpace(address,segment.size)
 		self.blocks.sort(key=lambda k: k[0])

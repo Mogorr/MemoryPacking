@@ -2,6 +2,7 @@
 
 import sys, getopt
 import memoryClasses
+import memoryGenerator
 
 def formatInput(inputfile):
 	infile = open(inputfile,'r')
@@ -41,11 +42,7 @@ def main(argv):
 	inputfile = ''
 	outputfile = ''
 	memsize = 16
-	try:
-		opts, args = getopt.getopt(argv,'hi:o:s:',['ifile=','ofile=','memsize='])
-	except getopt.GetoptError:
-		print 'test.py -i <inputfile> -o <outputfile> -s <memsize>'
-		sys.exit(2)
+	opts, args = getopt.getopt(argv,'hi:o:s:',['ifile=','ofile=','memsize='])
 	for opt, arg in opts:
 		if opt == '-h':
 			print 'test.py -i <inputfile> -o <outputfile> -s <memsize>'
@@ -56,6 +53,9 @@ def main(argv):
 			outputfile = arg
 		elif opt in ('-s', '--memsize'):
 			memsize = int(arg)
+	if inputfile=='':
+		inputfile='genInp.txt'
+		memoryGenerator.createSegments(memsize)
 	fillMemory(inputfile, outputfile, memsize)	
    
 if __name__ == '__main__':
