@@ -9,8 +9,10 @@ def formatInput(inputfile):
 	for line in linelist:
 		splitlist.append(line.split())
     intsplitlist = [map(int,x) for x in splitlist]
+	sortedlist = intsplitlist.sort(key = lambda k: (k[0], k[1]), reverse=True)
 	return intsplitlist
 
+def 	
 def main(argv):
 	inputfile = ''
 	outputfile = ''
