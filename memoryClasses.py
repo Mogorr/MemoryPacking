@@ -1,7 +1,7 @@
 class MemoryBank:
-	blocks = []
-	freeSpaces=[]
+
 	def __init__(self,inpsize=65536):
+		self.blocks = []
 		self.size=inpsize
 		self.freeSpaces=[[0,inpsize-1]]
 		
@@ -53,9 +53,9 @@ class MemoryBank:
 			memBank.addSegment(seg,'free')
 		
 class MemoryBankOS:
-	blocks = []
-	freeSpace=[]
+
 	def __init__(self,inpsize=65536):
+		self.blocks = []
 		self.size=inpsize
 		self.freeSpace=[0,inpsize-1]
 

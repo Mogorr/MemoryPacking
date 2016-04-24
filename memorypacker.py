@@ -90,6 +90,7 @@ def main(argv):
 			inputfile='genInp.txt'
 			memoryGenerator.createSegments(memsize)
 		fillMemory(inputfile, outputfile, memsize)
+		fillMemoryOS(inputfile, 'out_OS.csv', memsize)
 	else:
 		inputfile='genInp.txt'
 		outputfile=''
@@ -98,7 +99,7 @@ def main(argv):
 		totalUnusedOS=0
 		unusedSpaceOSPercent=0
 		for i in range(testmode):
-			sys.stdout.write('test {0:5}/{1:5}, {2:3f}%\r'.format(i,testmode,(i/float(testmode)*100)))
+			sys.stdout.write('{0:5}/{1:5}, {2:3f}%, {3:3f}%\r'.format(i,testmode,unusedSpacePercent,unusedSpaceOSPercent))
 			sys.stdout.flush()
 			#sys.stdout.write('before input generation: {0}\n'.format(time.clock()))
 			#sys.stdout.flush()
